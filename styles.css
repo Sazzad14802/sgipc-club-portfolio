@@ -15,6 +15,19 @@
   --radius-sm: 12px;
   --container: min(1120px, 92vw);
 }
+:root[data-theme="light"] {
+  --bg: #f8fafc;
+  --bg-soft: #e2e8f0;
+  --panel: #ffffff;
+  --panel-2: #f1f5f9;
+  --text: #0f172a;
+  --muted: #475569;
+  --primary: #0284c7;
+  --primary-soft: #0369a1;
+  --accent: #0f766e;
+  --border: rgba(100, 116, 139, 0.25);
+  --shadow: 0 12px 28px rgba(15, 23, 42, 0.12);
+}
 * {
   margin: 0;
   padding: 0;
@@ -76,6 +89,9 @@ body {
     border-color 260ms ease,
     box-shadow 260ms ease;
 }
+:root[data-theme="light"] .card {
+  background: var(--panel);
+}
 .card:hover {
   transform: translateY(-6px);
   border-color: rgba(106, 212, 255, 0.45);
@@ -89,6 +105,10 @@ body {
   background: rgba(6, 8, 15, 0.72);
   border-bottom: 1px solid rgba(111, 139, 181, 0.18);
 }
+:root[data-theme="light"] .site-header {
+  background: rgba(248, 250, 252, 0.86);
+  border-bottom-color: rgba(100, 116, 139, 0.18);
+}
 .nav-wrap {
   min-height: 4.5rem;
   display: flex;
@@ -100,7 +120,28 @@ body {
 .logo img{
   height: 60px;
 }
-
+.theme-toggle {
+  border: 1px solid var(--border);
+  background: var(--panel-2);
+  color: var(--text);
+  border-radius: 999px;
+  padding: 0.45rem 0.85rem;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 180ms ease,
+    color 180ms ease,
+    transform 180ms ease,
+    border-color 180ms ease;
+}
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  border-color: var(--primary-soft);
+  background: var(--panel);
+  transform: translateY(-1px);
+}
 .nav-links {
   list-style: none;
   display: flex;
@@ -166,6 +207,9 @@ body {
   border: 1px solid rgba(111, 139, 181, 0.3);
   border-radius: var(--radius-sm);
   padding: 1rem 1.1rem;
+}
+:root[data-theme="light"] .metric {
+  background: var(--panel-2);
 }
 .metric h3 {
   font-size: 1.6rem;
@@ -300,6 +344,12 @@ body {
   border-color 180ms ease,
   box-shadow 180ms ease;
 }
+:root[data-theme="light"] .join-form input,
+:root[data-theme="light"] .join-form select,
+:root[data-theme="light"] .join-form textarea {
+  background: #ffffff;
+  border-color: rgba(100, 116, 139, 0.25);
+}
 .join-form textarea {
   min-height: 110px;
   resize: vertical;
@@ -321,6 +371,18 @@ body {
   cursor: pointer;
   transition: transform 180ms ease;
 }
+:root[data-theme="light"] .join-form button {
+  justify-self: start;
+  border: 1px solid #dbeafe;
+  border-radius: 10px;
+  padding: 0.72rem 1rem;
+  font-weight: 700;
+  color: #1e293b; /* darker text for light bg */
+  background: linear-gradient(120deg, #e0f2fe, #bae6fd);
+  cursor: pointer;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
 .join-form button:hover {
   transform: translateY(-2px);
 }
