@@ -1,0 +1,240 @@
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SGIPC - A competitive programming club for problem solvers passionate about algorithms, coding contests, and continuous learning." />
+  <title>SGIPC - Competitive Programming Club</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <form id="form1" runat="server">
+    <header class="site-header">
+      <nav class="container nav-wrap" aria-label="Main navigation">
+        <a class="logo" href="#home"><img src="logo.png" alt="SGIPC Logo" /></a>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#activities">Activities</a></li>
+          <li><a href="#resources">Resources</a></li>
+          <li><a href="#achievements">Achievements</a></li>
+          <li><a href="#join">Join</a></li>
+        </ul>
+        <button class="theme-toggle" type="button" aria-label="Switch to light theme" aria-pressed="false">
+          Light mode
+        </button>
+      </nav>
+    </header>
+
+    <main id="home">
+      <section class="hero section">
+        <div class="container hero-grid">
+          <article class="card hero-content fade-up">
+            <p class="chip">University Competitive Programming Club</p>
+            <h1>SGIPC | <span>Special Group Interested in Programming Contest</span></h1>
+            <p class="section-subtitle">
+              We train coders to solve hard problems under pressure through contests,
+              team drills, and algorithm deep-dives. From first AC to ICPC regionals,
+              this is where disciplined practice meets a supportive community.
+            </p>
+          </article>
+
+          <aside class="card hero-stats fade-up delay-1" aria-label="Club highlights">
+            <p class="chip">Current Snapshot</p>
+            <div class="metric-grid">
+              <div class="metric">
+                <h3>120+</h3>
+                <p>Active members across beginner to advanced ladders</p>
+              </div>
+              <div class="metric">
+                <h3>2x / Week</h3>
+                <p>Live training sessions and upsolving labs</p>
+              </div>
+              <div class="metric">
+                <h3>20</h3>
+                <p>Members with 1600+ rating on online judges</p>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="about" class="section">
+        <div class="container">
+          <p class="chip">About the Club</p>
+          <h2 class="section-title">Building Problem Solvers, Not Just Coders</h2>
+          <p class="section-subtitle">
+            Competitive programming is the sport of algorithms. You solve carefully designed
+            problems with speed, logic, and clean implementation. At SGIPC,
+            we focus on consistency, collaboration, and confidence under contest pressure.
+          </p>
+
+          <div class="about">
+            <article class="card fade-up">
+              <h3>What We Do</h3>
+              <p>
+                We organize structured practice tracks covering data structures, graph theory,
+                dynamic programming, number theory, and contest strategy. Every member gets
+                guided progression and clear milestones.
+              </p>
+            </article>
+            <article class="card fade-up delay-1">
+              <h3>Our Mission</h3>
+              <p>
+                Create an inclusive space where students level up through practice, peer mentoring,
+                and meaningful feedback. We celebrate small wins, learn from wrong submissions,
+                and grow together.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="activities" class="section">
+        <div class="container">
+          <p class="chip">Activities</p>
+          <h2 class="section-title">Training That Feels Like a Team Sport</h2>
+          <p class="section-subtitle">
+            Weekly structure keeps momentum high while leaving space for curiosity and experimentation.
+          </p>
+
+          <div class="feature-grid">
+            <article class="card feature-card fade-up">
+              <h3>Weekly Contests</h3>
+              <p>Internal rounds every Friday with editorial walkthroughs and post-contest analysis.</p>
+            </article>
+            <article class="card feature-card fade-up delay-2">
+              <h3>ICPC Preparation</h3>
+              <p>Three-person team simulations, stress-tested workflows, and contest role optimization.</p>
+            </article>
+            <article class="card feature-card fade-up">
+              <h3>Problem Discussions</h3>
+              <p>Solution architecture debates that sharpen intuition and coding efficiency.</p>
+            </article>
+            <article class="card feature-card fade-up delay-1">
+              <h3>Mentorship System</h3>
+              <p>Senior members mentor juniors with learning plans, checkpoints, and mock interviews.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="resources" class="section">
+        <div class="container">
+          <p class="chip">Practice Resources</p>
+          <h2 class="section-title">Curated Platforms for Every Level</h2>
+          <p class="section-subtitle">
+            Start with fundamentals, then move into advanced ladders and contest archives.
+          </p>
+
+          <div class="resource-grid">
+            <article class="card resource-card fade-up">
+              <h3>Codeforces</h3>
+              <p>Frequent rounds, rich editorials, and a huge problem archive for ratings growth.</p>
+              <a href="https://codeforces.com" target="_blank" rel="noopener">Visit Platform</a>
+            </article>
+            <article class="card resource-card fade-up delay-1">
+              <h3>AtCoder</h3>
+              <p>Excellent quality problems and clean progression from beginner to expert.</p>
+              <a href="https://atcoder.jp" target="_blank" rel="noopener">Visit Platform</a>
+            </article>
+            <article class="card resource-card fade-up delay-2">
+              <h3>CSES Problem Set</h3>
+              <p>Structured topic-based training ideal for mastering classic algorithms.</p>
+              <a href="https://cses.fi/problemset" target="_blank" rel="noopener">Visit Platform</a>
+            </article>
+            <article class="card resource-card fade-up">
+              <h3>ICPC Archive</h3>
+              <p>Historic regional and world-final style problems for team practice scenarios.</p>
+              <a href="https://icpc.global" target="_blank" rel="noopener">Visit Platform</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="achievements" class="section">
+        <div class="container">
+          <p class="chip">Achievements</p>
+          <h2 class="section-title">Results That Reflect Consistent Practice</h2>
+          <p class="section-subtitle">Our members continue to push boundaries in local and international contests.</p>
+
+          <div class="achievement-grid">
+            <article class="card achievement-card fade-up">
+              <h3>ICPC World Finalists 2024</h3>
+              <p>A team from KUET reached the ICPC World Finals for the first time in 2024, marking a historic milestone for the university, setting a new benchmark for excellence within our club and inspiring future competitors.</p>
+            </article>
+            <article class="card achievement-card fade-up delay-2">
+              <h3>Asia West Finalists 2026</h3>
+              <p>Eight teams from KUET participated in the ICPC Dhaka Regional 2026. One team secured a top 20 position overall, became the Khulna divisional champion, and qualified for the ICPC Asia West Finals&mdash;marking another significant milestone for the club.</p>
+            </article>
+            <article class="card achievement-card fade-up delay-1">
+              <h3>BUET IUPC 2026 &mdash; 4th Place</h3>
+              <p>A team from KUET secured 4th place at the BUET Inter University Programming Contest (IUPC) 2026, demonstrating exceptional problem-solving skills and competitive excellence among top universities.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="join" class="section">
+        <div class="container">
+          <p class="chip">Join the Club</p>
+          <h2 class="section-title">Start Your Competitive Programming Journey</h2>
+          <p class="section-subtitle">No prior contest experience required. Curiosity and consistency are enough.</p>
+
+          <div class="join-wrap">
+            <aside class="card contact-box fade-up">
+              <h3>Contact</h3>
+              <p>Reach out for onboarding, training schedules, and collaboration opportunities.</p>
+              <ul class="social-list">
+                <li><a href="mailto:sgipc@kuet.edu">sgipc@kuet.edu</a></li>
+                <li><a href="https://discord.com" target="_blank" rel="noopener">Discord Community Server</a></li>
+                <li><a href="https://github.com" target="_blank" rel="noopener">GitHub Organization</a></li>
+              </ul>
+            </aside>
+
+            <section class="card join-form fade-up delay-1" aria-label="Join form">
+              <h3>Join Request Form</h3>
+
+              <label for="name">Full Name</label>
+              <asp:TextBox ID="name" runat="server" ClientIDMode="Static" placeholder="Your name" />
+              <asp:RequiredFieldValidator ID="nameValidator" runat="server" ControlToValidate="name" CssClass="validation-message" ErrorMessage="Full name is required." Display="Dynamic" />
+
+              <label for="email">Email Address</label>
+              <asp:TextBox ID="email" runat="server" ClientIDMode="Static" TextMode="Email" placeholder="you@example.com" />
+              <asp:RequiredFieldValidator ID="emailValidator" runat="server" ControlToValidate="email" CssClass="validation-message" ErrorMessage="Email address is required." Display="Dynamic" />
+              <asp:RegularExpressionValidator ID="emailFormatValidator" runat="server" ControlToValidate="email" CssClass="validation-message" ErrorMessage="Enter a valid email address." ValidationExpression="^[^@\s]+@[^@\s]+\.[^@\s]+$" Display="Dynamic" />
+
+              <label for="level">Current Level</label>
+              <asp:DropDownList ID="level" runat="server" ClientIDMode="Static">
+                <asp:ListItem Value="" Text="Select your level" />
+                <asp:ListItem Text="Beginner" />
+                <asp:ListItem Text="Intermediate" />
+                <asp:ListItem Text="Advanced" />
+              </asp:DropDownList>
+              <asp:RequiredFieldValidator ID="levelValidator" runat="server" ControlToValidate="level" InitialValue="" CssClass="validation-message" ErrorMessage="Please select your level." Display="Dynamic" />
+
+              <label for="message">Why do you want to join?</label>
+              <asp:TextBox ID="message" runat="server" ClientIDMode="Static" TextMode="MultiLine" placeholder="Tell us about your goals..." />
+
+              <asp:Button ID="submitButton" runat="server" Text="Submit" OnClick="SubmitButton_Click" />
+              <asp:Literal ID="formStatus" runat="server" />
+            </section>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2026 SGIPC. Built with ASP.NET Web Forms for aspiring problem solvers.</p>
+      </div>
+    </footer>
+  </form>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -319,7 +319,7 @@ body {
 .social-list a:hover {
   color: var(--accent);
 }
-.join-form form {
+.join-form {
   display: grid;
   gap: 0.8rem;
 }
@@ -360,7 +360,8 @@ body {
   border-color: var(--primary-soft);
   box-shadow: 0 0 0 3px rgba(106, 212, 255, 0.2);
 }
-.join-form button {
+.join-form input[type="submit"] {
+  width: auto;
   justify-self: start;
   border: 0;
   border-radius: 10px;
@@ -371,7 +372,8 @@ body {
   cursor: pointer;
   transition: transform 180ms ease;
 }
-:root[data-theme="light"] .join-form button {
+:root[data-theme="light"] .join-form input[type="submit"] {
+  width: auto;
   justify-self: start;
   border: 1px solid #dbeafe;
   border-radius: 10px;
@@ -383,8 +385,18 @@ body {
   transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
-.join-form button:hover {
+.join-form input[type="submit"]:hover {
   transform: translateY(-2px);
+}
+.validation-message {
+  color: var(--danger);
+  font-size: 0.82rem;
+  font-weight: 700;
+  margin-top: -0.45rem;
+}
+.form-status {
+  color: var(--accent);
+  font-weight: 700;
 }
 footer {
   border-top: 1px solid rgba(111, 139, 181, 0.2);
