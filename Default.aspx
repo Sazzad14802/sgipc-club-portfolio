@@ -23,6 +23,7 @@
           <li><a href="#resources">Resources</a></li>
           <li><a href="#achievements">Achievements</a></li>
           <li><a href="#join">Join</a></li>
+          <li><a href="Login.aspx">Admin</a></li>
         </ul>
         <button class="theme-toggle" type="button" aria-label="Switch to light theme" aria-pressed="false">
           Light mode
@@ -46,25 +47,21 @@
           <aside class="card hero-stats fade-up delay-1" aria-label="Club highlights">
             <p class="chip">Current Snapshot</p>
             <div class="metric-grid">
-              <div class="metric">
-                <h3>120+</h3>
-                <p>Active members across beginner to advanced ladders</p>
-              </div>
-              <div class="metric">
-                <h3>2x / Week</h3>
-                <p>Live training sessions and upsolving labs</p>
-              </div>
-              <div class="metric">
-                <h3>20</h3>
-                <p>Members with 1600+ rating on online judges</p>
-              </div>
+              <asp:Repeater ID="statsRepeater" runat="server">
+                <ItemTemplate>
+                  <div class="metric">
+                    <h3><%#: Eval("MetricValue") %></h3>
+                    <p><%#: Eval("Description") %></p>
+                  </div>
+                </ItemTemplate>
+              </asp:Repeater>
             </div>
           </aside>
         </div>
       </section>
 
       <section id="about" class="section">
-        <div class="container">
+          <div class="container">
           <p class="chip">About the Club</p>
           <h2 class="section-title">Building Problem Solvers, Not Just Coders</h2>
           <p class="section-subtitle">
@@ -163,18 +160,14 @@
           <p class="section-subtitle">Our members continue to push boundaries in local and international contests.</p>
 
           <div class="achievement-grid">
-            <article class="card achievement-card fade-up">
-              <h3>ICPC World Finalists 2024</h3>
-              <p>A team from KUET reached the ICPC World Finals for the first time in 2024, marking a historic milestone for the university, setting a new benchmark for excellence within our club and inspiring future competitors.</p>
-            </article>
-            <article class="card achievement-card fade-up delay-2">
-              <h3>Asia West Finalists 2026</h3>
-              <p>Eight teams from KUET participated in the ICPC Dhaka Regional 2026. One team secured a top 20 position overall, became the Khulna divisional champion, and qualified for the ICPC Asia West Finals&mdash;marking another significant milestone for the club.</p>
-            </article>
-            <article class="card achievement-card fade-up delay-1">
-              <h3>BUET IUPC 2026 &mdash; 4th Place</h3>
-              <p>A team from KUET secured 4th place at the BUET Inter University Programming Contest (IUPC) 2026, demonstrating exceptional problem-solving skills and competitive excellence among top universities.</p>
-            </article>
+            <asp:Repeater ID="achievementsRepeater" runat="server">
+              <ItemTemplate>
+                <article class="card achievement-card fade-up">
+                  <h3><%#: Eval("Title") %></h3>
+                  <p><%#: Eval("Description") %></p>
+                </article>
+              </ItemTemplate>
+            </asp:Repeater>
           </div>
         </div>
       </section>
