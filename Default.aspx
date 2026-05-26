@@ -35,7 +35,7 @@
       <section class="hero section">
         <div class="container hero-grid">
           <article class="card hero-content fade-up">
-            <p class="chip">University Competitive Programming Club</p>
+            <p class="chip">Competitive Programming Club of <span class="kuet-highlight">KUET</span></p>
             <h1>SGIPC | <span>Special Group Interested in Programming Contest</span></h1>
             <p class="section-subtitle">
               We train coders to solve hard problems under pressure through contests,

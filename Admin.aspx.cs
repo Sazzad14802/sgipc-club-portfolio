@@ -1,4 +1,5 @@
 using System;
+using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -6,6 +7,9 @@ public partial class Admin : Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        Response.Cache.SetNoStore();
+        Response.Cache.SetCacheability(HttpCacheability.NoCache);
+
         if (Session["IsAdmin"] == null || !(bool)Session["IsAdmin"])
         {
             Response.Redirect("Login.aspx");
@@ -193,6 +197,12 @@ public partial class Admin : Page
     protected void LogoutButton_Click(object sender, EventArgs e)
     {
         Session.Clear();
+        Session.Abandon();
+
+        if (Request.Cookies["AdminAuth"] != null)
+        {
+            Response.Cookies["AdminAuth"].Expires = DateTime.Now.AddDays(-1);
+        }
         Response.Redirect("Login.aspx");
     }
 
@@ -214,8 +224,16 @@ public partial class Admin : Page
 
     private static string ReadEditedCell(GridViewRow row, int cellIndex)
     {
-        TextBox textBox = row.Cells[cellIndex].Controls[0] as TextBox;
-        return textBox == null ? string.Empty : textBox.Text.Trim();
+        // Loop through controls to find the TextBox (Supports both BoundField and TemplateField)
+        foreach (Control control in row.Cells[cellIndex].Controls)
+        {
+            TextBox textBox = control as TextBox;
+            if (textBox != null)
+            {
+                return textBox.Text.Trim();
+            }
+        }
+        return string.Empty;
     }
 
     private static bool TryReadDisplayOrder(string value, out int displayOrder)

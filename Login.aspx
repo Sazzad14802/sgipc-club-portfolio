@@ -25,7 +25,10 @@
         <label for="password">Password</label>
         <asp:TextBox ID="password" runat="server" ClientIDMode="Static" TextMode="Password" />
         <asp:RequiredFieldValidator ID="passwordValidator" runat="server" ControlToValidate="password" CssClass="validation-message" ErrorMessage="Password is required." Display="Dynamic" />
-
+        <label class="remember-wrap">
+            <input type="checkbox" id="rememberMe" runat="server" />
+            <span>Remember me</span>
+        </label>
         <asp:Button ID="loginButton" runat="server" Text="Login" OnClick="LoginButton_Click" />
         <asp:Literal ID="loginStatus" runat="server" />
 

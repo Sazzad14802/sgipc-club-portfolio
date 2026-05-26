@@ -71,7 +71,10 @@
 
                     <asp:TextBox ID="snapshotDescriptionTextBox"
                       runat="server"
-                      ClientIDMode="Static" />
+                      ClientIDMode="Static"
+                      TextMode="MultiLine"
+                      CssClass="dynamic-textarea"
+                      oninput="this.style.height = ''; this.style.height = this.scrollHeight + 'px';" />
                   </div>
 
                   <div>
@@ -108,7 +111,14 @@
                   <Columns>
                     <asp:BoundField DataField="SnapshotId" HeaderText="ID" ReadOnly="True" />
                     <asp:BoundField DataField="MetricValue" HeaderText="Value" />
-                    <asp:BoundField DataField="Description" HeaderText="Description" />
+                    <asp:TemplateField HeaderText="Description">
+                      <ItemTemplate>
+                        <asp:Label ID="lblDescription" runat="server" Text='<%# Eval("Description") %>'></asp:Label>
+                      </ItemTemplate>
+                      <EditItemTemplate>
+                        <asp:TextBox ID="editDescriptionTextBox" runat="server" Text='<%# Bind("Description") %>' TextMode="MultiLine" CssClass="dynamic-textarea" oninput="this.style.height = ''; this.style.height = this.scrollHeight + 'px';" />
+                      </EditItemTemplate>
+                    </asp:TemplateField>
                     <asp:BoundField DataField="DisplayOrder" HeaderText="Display Order" />
 
                     <asp:BoundField
@@ -136,7 +146,10 @@
 
                     <asp:TextBox ID="achievementTitleTextBox"
                       runat="server"
-                      ClientIDMode="Static" />
+                      ClientIDMode="Static"
+                      TextMode="MultiLine"
+                      CssClass="dynamic-textarea"
+                      oninput="this.style.height = ''; this.style.height = this.scrollHeight + 'px';" />
                   </div>
 
                   <div>
@@ -181,8 +194,22 @@
 
                   <Columns>
                     <asp:BoundField DataField="AchievementId" HeaderText="ID" ReadOnly="True" />
-                    <asp:BoundField DataField="Title" HeaderText="Title" />
-                    <asp:BoundField DataField="Description" HeaderText="Description" />
+                    <asp:TemplateField HeaderText="Title">
+                      <ItemTemplate>
+                        <asp:Label ID="lblTitle" runat="server" Text='<%# Eval("Title") %>'></asp:Label>
+                      </ItemTemplate>
+                      <EditItemTemplate>
+                        <asp:TextBox ID="editTitleTextBox" runat="server" Text='<%# Bind("Title") %>' TextMode="MultiLine" CssClass="dynamic-textarea" oninput="this.style.height = ''; this.style.height = this.scrollHeight + 'px';" />
+                      </EditItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Description">
+                      <ItemTemplate>
+                        <asp:Label ID="lblDescription" runat="server" Text='<%# Eval("Description") %>'></asp:Label>
+                      </ItemTemplate>
+                      <EditItemTemplate>
+                        <asp:TextBox ID="editDescriptionTextBox" runat="server" Text='<%# Bind("Description") %>' TextMode="MultiLine" CssClass="dynamic-textarea" oninput="this.style.height = ''; this.style.height = this.scrollHeight + 'px';" />
+                      </EditItemTemplate>
+                    </asp:TemplateField>
                     <asp:BoundField DataField="DisplayOrder" HeaderText="Display Order" />
 
                     <asp:BoundField

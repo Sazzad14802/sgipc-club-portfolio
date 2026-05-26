@@ -486,6 +486,22 @@ body {
   font-family: "JetBrains Mono", monospace;
   font-size: 0.82rem;
 }
+.dynamic-textarea {
+  width: 100%;
+  min-width: 250px;
+  min-height: 60px;
+  border: 1px solid rgba(106, 212, 255, 0.25);
+  border-radius: 8px;
+  background: rgba(5, 10, 20, 0.65);
+  color: var(--text);
+  padding: 0.5rem;
+  font: inherit;
+  overflow: hidden; /* Hides standard scrollbar during auto-resize */
+}
+:root[data-theme="light"] .dynamic-textarea {
+  background: #ffffff;
+  border-color: rgba(100, 116, 139, 0.25);
+}
 .admin-table input[type="text"] {
   min-width: 140px;
 }
@@ -630,4 +646,37 @@ footer {
   .theme-toggle {
     margin-top: 0.25rem;
   }
+}
+/* Container for the checkbox and text */
+.remember-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* Adds a nice space between the box and the text */
+    cursor: pointer;
+}
+
+/* Override the 100% width from .auth-card input */
+.remember-wrap input[type="checkbox"] {
+    width: auto;
+    margin: 0;
+    cursor: pointer;
+}
+
+/* Optional: adjust the span to look aligned with your existing label styling */
+.remember-wrap span {
+    font-weight: normal;
+}
+
+.kuet-highlight {
+    background: var(--primary-soft);
+    color: #041620; /* Dark text for contrast */
+    padding: 0.1rem 0.5rem;
+    border-radius: 999px;
+    font-weight: 800;
+    margin-left: 0.3rem;
+    box-shadow: 0 2px 10px rgba(56, 189, 248, 0.2);
+}
+
+:root[data-theme="light"] .kuet-highlight {
+    color: #ffffff;
 }
