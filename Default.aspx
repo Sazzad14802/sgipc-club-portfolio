@@ -10,13 +10,13 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="Assets/styles.css" />
 </head>
 <body>
   <form id="form1" runat="server">
     <header class="site-header">
       <nav class="container nav-wrap" aria-label="Main navigation">
-        <a class="logo" href="#home"><img src="logo.png" alt="SGIPC Logo" /></a>
+        <a class="logo" href="#home"><img src="Assets/logo.png" alt="SGIPC Logo" /></a>
         <ul class="nav-links">
           <li><a href="#about">About</a></li>
           <li><a href="#activities">Activities</a></li>
@@ -224,6 +224,6 @@
     </footer>
   </form>
 
-  <script src="script.js"></script>
+  <script src="Assets/script.js"></script>
 </body>
 </html>

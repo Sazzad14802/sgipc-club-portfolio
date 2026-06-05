@@ -22,7 +22,7 @@ public partial class Login : Page
 
         if (Session["IsAdmin"] != null && (bool)Session["IsAdmin"])
         {
-            Response.Redirect("Admin.aspx");
+            Response.Redirect("Admin/Admin.aspx");
         }
     }
 
@@ -44,7 +44,7 @@ public partial class Login : Page
                 Response.Cookies.Add(authCookie);
             }
 
-            Response.Redirect("Admin.aspx");
+            Response.Redirect("Admin/Admin.aspx");
             return;
         }
 

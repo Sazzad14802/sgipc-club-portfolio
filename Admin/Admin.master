@@ -1,0 +1,54 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Admin.master.cs" Inherits="AdminMaster" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard - SGIPC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../Assets/styles.css?v=2" />
+  <asp:ContentPlaceHolder id="HeadContent" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+      <asp:ScriptManager runat="server" />
+      <asp:UpdatePanel runat="server">
+        <ContentTemplate>
+
+          <header class="site-header">
+            <nav class="container nav-wrap" aria-label="Admin navigation">
+              <a class="logo" href="Admin.aspx">
+                <img src="../Assets/logo.png" alt="SGIPC Logo" />
+              </a>
+
+              <ul class="nav-links">
+                <li><a href="../Default.aspx">View Portfolio</a></li>
+                <li><a href="AdminSnapshots.aspx">Snapshots</a></li>
+                <li><a href="AdminAchievements.aspx">Achievements</a></li>
+                <li><a href="AdminContactMessages.aspx">Messages</a></li>
+                <li>
+                  <asp:LinkButton ID="logoutButton"
+                    runat="server"
+                    CausesValidation="false"
+                    OnClick="LogoutButton_Click">
+                    Logout
+                  </asp:LinkButton>
+                </li>
+              </ul>
+            </nav>
+          </header>
+
+          <main class="admin-shell">
+            <section class="container">
+                <asp:ContentPlaceHolder id="MainContent" runat="server">
+                </asp:ContentPlaceHolder>
+            </section>
+          </main>
+
+        </ContentTemplate>
+      </asp:UpdatePanel>
+    </form>
+</body>
+</html>

@@ -41,20 +41,26 @@
 
 ```text
 club_portfolio_project/
+├── Admin/
+│   ├── Admin.aspx                        # Admin dashboard UI
+│   ├── Admin.aspx.cs                     # Admin dashboard code-behind
+│   ├── Admin.master                      # Master page for admin area
+│   ├── AdminSnapshots.aspx               # Snapshot management UI
+│   ├── AdminAchievements.aspx            # Achievement management UI
+│   └── AdminContactMessages.aspx         # Contact messages management UI
 ├── App_Code/
-│   └── PortfolioRepository.cs        # Data access layer for DB operations
+│   └── PortfolioRepository.cs            # Data access layer for DB operations
+├── Assets/
+│   ├── logo.png                          # Club logo asset
+│   ├── script.js                         # Frontend interactions and theme toggling
+│   └── styles.css                        # Core styling system
 ├── DatabaseScripts/
-│   └── CreatePortfolioTables.sql     # SQL script to initialize DB and seed data
-├── Admin.aspx                        # Admin dashboard UI
-├── Admin.aspx.cs                     # Admin dashboard code-behind
-├── Default.aspx                      # Main landing page UI
-├── Default.aspx.cs                   # Main landing page code-behind
-├── Login.aspx                        # Admin login UI
-├── Login.aspx.cs                     # Admin login code-behind
-├── Web.config                        # Application and database configuration
-├── script.js                         # Frontend interactions and theme toggling
-├── styles.css                        # Core styling system
-└── logo.png                          # Club logo asset
+│   └── CreatePortfolioTables.sql         # SQL script to initialize DB and seed data
+├── Default.aspx                          # Main landing page UI
+├── Default.aspx.cs                       # Main landing page code-behind
+├── Login.aspx                            # Admin login UI
+├── Login.aspx.cs                         # Admin login code-behind
+└── Web.config                            # Application and database configuration
 ```
 
 ---
