@@ -8,7 +8,7 @@
   <title>Admin Dashboard - SGIPC</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=2" />
 </head>
 <body>
       <form id="form1" runat="server">
@@ -53,7 +53,7 @@
                   CssClass="form-status" />
               </div>
 
-              <section class="card admin-panel">
+              <section class="admin-panel">
                 <h2>Add Snapshot</h2>
 
                 <div class="admin-grid">
@@ -95,7 +95,7 @@
                   OnClick="AddSnapshotButton_Click" />
               </section>
 
-              <section class="card admin-panel">
+              <section class="admin-panel">
                 <h2>Snapshot Table</h2>
 
                 <asp:GridView ID="snapshotGridView"
@@ -136,7 +136,7 @@
                 </asp:GridView>
               </section>
 
-              <section class="card admin-panel">
+              <section class="admin-panel">
                 <h2>Add Achievement</h2>
 
                 <div class="admin-grid">
@@ -179,7 +179,7 @@
                   OnClick="AddAchievementButton_Click" />
               </section>
 
-              <section class="card admin-panel">
+              <section class="admin-panel">
                 <h2>Achievements Table</h2>
 
                 <asp:GridView ID="achievementsGridView"
@@ -227,7 +227,7 @@
                 </asp:GridView>
               </section>
 
-              <section class="card admin-panel">
+              <section class="admin-panel">
                 <h2>Contact Messages</h2>
 
                 <asp:GridView ID="contactMessagesGridView"

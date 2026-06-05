@@ -525,6 +525,16 @@ body {
 .admin-heading {
   margin-bottom: 1.5rem;
 }
+.admin-panel, .auth-card {
+  background: rgba(30, 41, 59, 0.9);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+:root[data-theme="light"] .admin-panel,
+:root[data-theme="light"] .auth-card {
+  background: var(--panel);
+}
 .admin-panel {
   padding: 1.5rem;
   margin-bottom: 1rem;
