@@ -22,7 +22,7 @@
           <li><a href="#activities">Activities</a></li>
           <li><a href="#resources">Resources</a></li>
           <li><a href="#achievements">Achievements</a></li>
-          <li><a href="#join">Join</a></li>
+          <li><a href="#contact">Contact</a></li>
           <li><a href="Login.aspx">Admin</a></li>
         </ul>
         <button class="theme-toggle" type="button" aria-label="Switch to light theme" aria-pressed="false">
@@ -172,11 +172,11 @@
         </div>
       </section>
 
-      <section id="join" class="section">
+      <section id="contact" class="section">
         <div class="container">
-          <p class="chip">Join the Club</p>
-          <h2 class="section-title">Start Your Competitive Programming Journey</h2>
-          <p class="section-subtitle">No prior contest experience required. Curiosity and consistency are enough.</p>
+          <p class="chip">Contact Us</p>
+          <h2 class="section-title">Get In Touch</h2>
+          <p class="section-subtitle">Have questions or want to collaborate? Send us a message.</p>
 
           <div class="join-wrap">
             <aside class="card contact-box fade-up">
@@ -189,8 +189,8 @@
               </ul>
             </aside>
 
-            <section class="card join-form fade-up delay-1" aria-label="Join form">
-              <h3>Join Request Form</h3>
+            <section class="card join-form fade-up delay-1" aria-label="Contact form">
+              <h3>Send a Message</h3>
 
               <label for="name">Full Name</label>
               <asp:TextBox ID="name" runat="server" ClientIDMode="Static" placeholder="Your name" />
@@ -201,19 +201,15 @@
               <asp:RequiredFieldValidator ID="emailValidator" runat="server" ControlToValidate="email" CssClass="validation-message" ErrorMessage="Email address is required." Display="Dynamic" />
               <asp:RegularExpressionValidator ID="emailFormatValidator" runat="server" ControlToValidate="email" CssClass="validation-message" ErrorMessage="Enter a valid email address." ValidationExpression="^[^@\s]+@[^@\s]+\.[^@\s]+$" Display="Dynamic" />
 
-              <label for="level">Current Level</label>
-              <asp:DropDownList ID="level" runat="server" ClientIDMode="Static">
-                <asp:ListItem Value="" Text="Select your level" />
-                <asp:ListItem Text="Beginner" />
-                <asp:ListItem Text="Intermediate" />
-                <asp:ListItem Text="Advanced" />
-              </asp:DropDownList>
-              <asp:RequiredFieldValidator ID="levelValidator" runat="server" ControlToValidate="level" InitialValue="" CssClass="validation-message" ErrorMessage="Please select your level." Display="Dynamic" />
+              <label for="subject">Subject</label>
+              <asp:TextBox ID="subject" runat="server" ClientIDMode="Static" placeholder="Message subject" />
+              <asp:RequiredFieldValidator ID="subjectValidator" runat="server" ControlToValidate="subject" CssClass="validation-message" ErrorMessage="Subject is required." Display="Dynamic" />
 
-              <label for="message">Why do you want to join?</label>
-              <asp:TextBox ID="message" runat="server" ClientIDMode="Static" TextMode="MultiLine" placeholder="Tell us about your goals..." />
+              <label for="message">Message</label>
+              <asp:TextBox ID="message" runat="server" ClientIDMode="Static" TextMode="MultiLine" placeholder="Your message..." />
+              <asp:RequiredFieldValidator ID="messageValidator" runat="server" ControlToValidate="message" CssClass="validation-message" ErrorMessage="Message is required." Display="Dynamic" />
 
-              <asp:Button ID="submitButton" runat="server" Text="Submit" OnClick="SubmitButton_Click" />
+              <asp:Button ID="submitButton" runat="server" Text="Send Message" OnClick="SubmitButton_Click" />
               <asp:Literal ID="formStatus" runat="server" />
             </section>
           </div>

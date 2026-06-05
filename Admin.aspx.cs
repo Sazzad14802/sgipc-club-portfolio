@@ -194,6 +194,23 @@ public partial class Admin : Page
         }
     }
 
+    protected void ContactMessagesGridView_RowDeleting(object sender, GridViewDeleteEventArgs e)
+    {
+        int contactMessageId = Convert.ToInt32(contactMessagesGridView.DataKeys[e.RowIndex].Value);
+
+        try
+        {
+            PortfolioRepository.DeleteContactMessage(contactMessageId);
+            ShowSuccess("Contact message deleted successfully.");
+            BindTables();
+        }
+        catch (Exception ex)
+        {
+            ShowError("Contact message delete error: " + ex.Message);
+        }
+    }
+
+
     protected void LogoutButton_Click(object sender, EventArgs e)
     {
         Session.Clear();
@@ -215,6 +232,9 @@ public partial class Admin : Page
 
             achievementsGridView.DataSource = PortfolioRepository.GetAchievements();
             achievementsGridView.DataBind();
+
+            contactMessagesGridView.DataSource = PortfolioRepository.GetContactMessages();
+            contactMessagesGridView.DataBind();
         }
         catch (Exception ex)
         {

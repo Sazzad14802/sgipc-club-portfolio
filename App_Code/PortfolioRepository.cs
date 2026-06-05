@@ -16,6 +16,12 @@ public static class PortfolioRepository
         return FillTable(sql);
     }
 
+    public static DataTable GetContactMessages()
+    {
+        const string sql = "SELECT ContactMessageId, Name, Email, Subject, Message, CreatedAt FROM ContactMessages ORDER BY CreatedAt DESC";
+        return FillTable(sql);
+    }
+
     public static void InsertSnapshot(string metricValue, string description, int displayOrder)
     {
         const string sql = "INSERT INTO Snapshot (MetricValue, Description, DisplayOrder) VALUES (@MetricValue, @Description, @DisplayOrder)";
@@ -83,6 +89,29 @@ public static class PortfolioRepository
         ExecuteNonQuery(sql, command =>
         {
             command.Parameters.Add("@AchievementId", SqlDbType.Int).Value = achievementId;
+        });
+    }
+
+    public static void InsertContactMessage(string name, string email, string subject, string message)
+    {
+        const string sql = "INSERT INTO ContactMessages (Name, Email, Subject, Message) VALUES (@Name, @Email, @Subject, @Message)";
+
+        ExecuteNonQuery(sql, command =>
+        {
+            command.Parameters.Add("@Name", SqlDbType.NVarChar, 100).Value = name;
+            command.Parameters.Add("@Email", SqlDbType.NVarChar, 150).Value = email;
+            command.Parameters.Add("@Subject", SqlDbType.NVarChar, 200).Value = subject;
+            command.Parameters.Add("@Message", SqlDbType.NVarChar, -1).Value = message; // -1 for MAX
+        });
+    }
+
+    public static void DeleteContactMessage(int contactMessageId)
+    {
+        const string sql = "DELETE FROM ContactMessages WHERE ContactMessageId = @ContactMessageId";
+
+        ExecuteNonQuery(sql, command =>
+        {
+            command.Parameters.Add("@ContactMessageId", SqlDbType.Int).Value = contactMessageId;
         });
     }
 

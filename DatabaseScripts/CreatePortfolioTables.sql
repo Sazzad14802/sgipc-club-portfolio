@@ -52,3 +52,17 @@ BEGIN
         (N'BUET IUPC 2026 - 4th Place', N'A team from KUET secured 4th place at the BUET Inter University Programming Contest (IUPC) 2026, demonstrating exceptional problem-solving skills and competitive excellence among top universities.', 3);
 END;
 GO
+
+IF OBJECT_ID('dbo.ContactMessages', 'U') IS NULL
+BEGIN
+    CREATE TABLE dbo.ContactMessages
+    (
+        ContactMessageId INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+        Name NVARCHAR(100) NOT NULL,
+        Email NVARCHAR(150) NOT NULL,
+        Subject NVARCHAR(200) NOT NULL,
+        Message NVARCHAR(MAX) NOT NULL,
+        CreatedAt DATETIME2 NOT NULL CONSTRAINT DF_ContactMessages_CreatedAt DEFAULT (SYSUTCDATETIME())
+    );
+END;
+GO
