@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="logo.png" alt="SGIPC Logo" width="150"/>
+<img src="Assets/logo.png" alt="SGIPC Logo" width="150"/>
 
 # SGIPC Portfolio
 **A Modern, Responsive, and Lightweight University Competitive Programming Club Portfolio**
