@@ -8,6 +8,8 @@ public partial class AdminMaster : System.Web.UI.MasterPage
     {
         Response.Cache.SetNoStore();
         Response.Cache.SetCacheability(HttpCacheability.NoCache);
+        Response.Cache.SetExpires(DateTime.UtcNow.AddDays(-1));
+        Response.Cache.SetNoServerCaching();
 
         if (Session["IsAdmin"] == null || !(bool)Session["IsAdmin"])
         {

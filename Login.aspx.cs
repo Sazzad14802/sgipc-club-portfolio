@@ -9,6 +9,8 @@ public partial class Login : Page
     {
         Response.Cache.SetNoStore();
         Response.Cache.SetCacheability(HttpCacheability.NoCache);
+        Response.Cache.SetExpires(DateTime.UtcNow.AddDays(-1));
+        Response.Cache.SetNoServerCaching();
 
         if (Session["IsAdmin"] == null)
         {

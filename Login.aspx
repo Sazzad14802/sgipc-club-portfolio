@@ -29,6 +29,7 @@
             <input type="checkbox" id="rememberMe" runat="server" />
             <span>Remember me</span>
         </label>
+
         <asp:Button ID="loginButton" runat="server" Text="Login" OnClick="LoginButton_Click" />
         <asp:Literal ID="loginStatus" runat="server" />
 
@@ -36,5 +37,12 @@
       </section>
     </main>
   </form>
+  <script>
+    window.onpageshow = function(event) {
+        if (event.persisted) {
+            window.location.reload();
+        }
+    };
+  </script>
 </body>
 </html>
