@@ -14,10 +14,26 @@
 </head>
 <body>
   <form id="form1" runat="server">
+    <div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
+
+    <!-- Mobile drawer — outside header so backdrop-filter stacking context doesn't trap it -->
+    <nav class="nav-drawer" id="navDrawer" aria-label="Mobile navigation" aria-hidden="true">
+      <ul class="nav-links" id="navLinks" role="list">
+        <li><a href="#about">About</a></li>
+        <li><a href="#activities">Activities</a></li>
+        <li><a href="#resources">Resources</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="Login.aspx">Admin</a></li>
+      </ul>
+    </nav>
+
     <header class="site-header">
-      <nav class="container nav-wrap" aria-label="Main navigation">
+      <div class="container nav-wrap" role="navigation" aria-label="Main navigation">
         <a class="logo" href="#home"><img src="Assets/logo.png" alt="SGIPC Logo" /></a>
-        <ul class="nav-links">
+
+        <!-- Desktop-only nav links (hidden on mobile via CSS) -->
+        <ul class="nav-links-desktop" aria-label="Desktop navigation links">
           <li><a href="#about">About</a></li>
           <li><a href="#activities">Activities</a></li>
           <li><a href="#resources">Resources</a></li>
@@ -25,11 +41,31 @@
           <li><a href="#contact">Contact</a></li>
           <li><a href="Login.aspx">Admin</a></li>
         </ul>
-        <button class="theme-toggle" type="button" aria-label="Switch to light theme" aria-pressed="false">
-          Light mode
-        </button>
-      </nav>
+
+        <div class="nav-actions">
+          <button class="theme-toggle" id="themeToggleBtn" type="button" aria-label="Switch to light theme" aria-pressed="false">
+            <!-- Sun icon (shown in dark mode) -->
+            <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/>
+              <line x1="4.22" y1="4.22" x2="7.05" y2="7.05"/><line x1="16.95" y1="16.95" x2="19.78" y2="19.78"/>
+              <line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/>
+              <line x1="4.22" y1="19.78" x2="7.05" y2="16.95"/><line x1="16.95" y1="7.05" x2="19.78" y2="4.22"/>
+            </svg>
+            <!-- Moon icon (shown in light mode) -->
+            <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+          </button>
+
+          <button class="hamburger" id="hamburgerBtn" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navDrawer">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </button>
+        </div>
+      </div>
     </header>
+
 
     <main id="home">
       <section class="hero section">
