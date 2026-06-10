@@ -32,8 +32,23 @@ public partial class AdminContactMessages : Page
     {
         try
         {
-            contactMessagesGridView.DataSource = PortfolioRepository.GetContactMessages();
+            var messagesTable = PortfolioRepository.GetContactMessages();
+            contactMessagesGridView.DataSource = messagesTable;
             contactMessagesGridView.DataBind();
+
+            int count = messagesTable.Rows.Count;
+            if (count == 0)
+            {
+                messagesCountHeading.InnerText = "No messages";
+            }
+            else if (count == 1)
+            {
+                messagesCountHeading.InnerText = "1 message";
+            }
+            else
+            {
+                messagesCountHeading.InnerText = count + " messages";
+            }
         }
         catch (Exception ex)
         {

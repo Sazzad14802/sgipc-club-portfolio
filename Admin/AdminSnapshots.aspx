@@ -31,22 +31,23 @@
 
     <section class="admin-panel">
         <h2>Snapshot Table</h2>
-        <asp:GridView ID="snapshotGridView" runat="server" CssClass="admin-table" AutoGenerateColumns="False" DataKeyNames="SnapshotId" OnRowEditing="SnapshotGridView_RowEditing" OnRowCancelingEdit="SnapshotGridView_RowCancelingEdit" OnRowUpdating="SnapshotGridView_RowUpdating" OnRowDeleting="SnapshotGridView_RowDeleting">
-            <Columns>
-                <asp:BoundField DataField="SnapshotId" HeaderText="ID" ReadOnly="True" />
-                <asp:BoundField DataField="MetricValue" HeaderText="Value" />
-                <asp:TemplateField HeaderText="Description">
-                    <ItemTemplate>
-                        <asp:Label ID="lblDescription" runat="server" Text='<%# Eval("Description") %>'></asp:Label>
-                    </ItemTemplate>
-                    <EditItemTemplate>
-                        <asp:TextBox ID="editDescriptionTextBox" runat="server" Text='<%# Bind("Description") %>' TextMode="MultiLine" CssClass="dynamic-textarea" oninput="this.style.height = ''; this.style.height = this.scrollHeight + 'px';" />
-                    </EditItemTemplate>
-                </asp:TemplateField>
-                <asp:BoundField DataField="DisplayOrder" HeaderText="Display Order" />
-                <asp:BoundField DataField="CreatedAt" HeaderText="Created At" ReadOnly="True" DataFormatString="{0:yyyy-MM-dd HH:mm}" />
-                <asp:CommandField ButtonType="Button" ShowEditButton="True" ShowDeleteButton="True" />
-            </Columns>
-        </asp:GridView>
+        <div class="table-responsive">
+            <asp:GridView ID="snapshotGridView" runat="server" CssClass="admin-table" AutoGenerateColumns="False" DataKeyNames="SnapshotId" OnRowEditing="SnapshotGridView_RowEditing" OnRowCancelingEdit="SnapshotGridView_RowCancelingEdit" OnRowUpdating="SnapshotGridView_RowUpdating" OnRowDeleting="SnapshotGridView_RowDeleting">
+                <Columns>
+                    <asp:BoundField DataField="SnapshotId" HeaderText="ID" ReadOnly="True" />
+                    <asp:BoundField DataField="MetricValue" HeaderText="Value" />
+                    <asp:TemplateField HeaderText="Description">
+                        <ItemTemplate>
+                            <asp:Label ID="lblDescription" runat="server" Text='<%# Eval("Description") %>'></asp:Label>
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                            <asp:TextBox ID="editDescriptionTextBox" runat="server" Text='<%# Bind("Description") %>' TextMode="MultiLine" CssClass="dynamic-textarea" oninput="this.style.height = ''; this.style.height = this.scrollHeight + 'px';" />
+                        </EditItemTemplate>
+                    </asp:TemplateField>
+                    <asp:BoundField DataField="DisplayOrder" HeaderText="Display Order" />
+                    <asp:CommandField ButtonType="Button" ShowEditButton="True" ShowDeleteButton="True" />
+                </Columns>
+            </asp:GridView>
+        </div>
     </section>
 </asp:Content>

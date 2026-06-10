@@ -24,11 +24,11 @@ public partial class _Default : Page
                 subject.Text = string.Empty;
                 message.Text = string.Empty;
 
-                formStatus.Text = "<div class=\"form-status\" style=\"color: #10b981; margin-top: 1rem;\">Message sent successfully! We will get back to you soon.</div>";
+                ScriptManager.RegisterStartupScript(this, GetType(), "ShowToast", "showToast('Message sent', 'success');", true);
             }
             catch (Exception)
             {
-                formStatus.Text = "<div class=\"validation-message\" style=\"margin-top: 1rem;\">An error occurred while sending your message. Please try again later.</div>";
+                ScriptManager.RegisterStartupScript(this, GetType(), "ShowToast", "showToast('An error occurred while sending your message. Please try again later.', 'error');", true);
             }
         }
     }

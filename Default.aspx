@@ -10,10 +10,11 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="Assets/styles.css" />
+  <link rel="stylesheet" href="Assets/styles.css?v=2" />
 </head>
 <body>
   <form id="form1" runat="server">
+    <asp:ScriptManager runat="server" />
     <div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
 
     <!-- Mobile drawer — outside header so backdrop-filter stacking context doesn't trap it -->
@@ -221,33 +222,36 @@
               <ul class="social-list">
                 <li><a href="mailto:sgipc@kuet.edu">sgipc@kuet.edu</a></li>
                 <li><a href="https://discord.com" target="_blank" rel="noopener">Discord Community Server</a></li>
-                <li><a href="https://github.com" target="_blank" rel="noopener">GitHub Organization</a></li>
+                <li><a href="https://www.facebook.com/sgipc.kuet" target="_blank" rel="noopener">Facebook Page</a></li>
               </ul>
             </aside>
 
-            <section class="card join-form fade-up delay-1" aria-label="Contact form">
-              <h3>Send a Message</h3>
+            <asp:UpdatePanel runat="server">
+              <ContentTemplate>
+                <section class="card join-form fade-up delay-1" aria-label="Contact form">
+                  <h3>Send a Message</h3>
 
-              <label for="name">Full Name</label>
-              <asp:TextBox ID="name" runat="server" ClientIDMode="Static" placeholder="Your name" />
-              <asp:RequiredFieldValidator ID="nameValidator" runat="server" ControlToValidate="name" CssClass="validation-message" ErrorMessage="Full name is required." Display="Dynamic" />
+                  <label for="name">Full Name</label>
+                  <asp:TextBox ID="name" runat="server" ClientIDMode="Static" placeholder="Your name" />
+                  <asp:RequiredFieldValidator ID="nameValidator" runat="server" ControlToValidate="name" CssClass="validation-message" ErrorMessage="Full name is required." Display="Dynamic" />
 
-              <label for="email">Email Address</label>
-              <asp:TextBox ID="email" runat="server" ClientIDMode="Static" TextMode="Email" placeholder="you@example.com" />
-              <asp:RequiredFieldValidator ID="emailValidator" runat="server" ControlToValidate="email" CssClass="validation-message" ErrorMessage="Email address is required." Display="Dynamic" />
-              <asp:RegularExpressionValidator ID="emailFormatValidator" runat="server" ControlToValidate="email" CssClass="validation-message" ErrorMessage="Enter a valid email address." ValidationExpression="^[^@\s]+@[^@\s]+\.[^@\s]+$" Display="Dynamic" />
+                  <label for="email">Email Address</label>
+                  <asp:TextBox ID="email" runat="server" ClientIDMode="Static" TextMode="Email" placeholder="you@example.com" />
+                  <asp:RequiredFieldValidator ID="emailValidator" runat="server" ControlToValidate="email" CssClass="validation-message" ErrorMessage="Email address is required." Display="Dynamic" />
+                  <asp:RegularExpressionValidator ID="emailFormatValidator" runat="server" ControlToValidate="email" CssClass="validation-message" ErrorMessage="Enter a valid email address." ValidationExpression="^[^@\s]+@[^@\s]+\.[^@\s]+$" Display="Dynamic" />
 
-              <label for="subject">Subject</label>
-              <asp:TextBox ID="subject" runat="server" ClientIDMode="Static" placeholder="Message subject" />
-              <asp:RequiredFieldValidator ID="subjectValidator" runat="server" ControlToValidate="subject" CssClass="validation-message" ErrorMessage="Subject is required." Display="Dynamic" />
+                  <label for="subject">Subject</label>
+                  <asp:TextBox ID="subject" runat="server" ClientIDMode="Static" placeholder="Message subject" />
+                  <asp:RequiredFieldValidator ID="subjectValidator" runat="server" ControlToValidate="subject" CssClass="validation-message" ErrorMessage="Subject is required." Display="Dynamic" />
 
-              <label for="message">Message</label>
-              <asp:TextBox ID="message" runat="server" ClientIDMode="Static" TextMode="MultiLine" placeholder="Your message..." />
-              <asp:RequiredFieldValidator ID="messageValidator" runat="server" ControlToValidate="message" CssClass="validation-message" ErrorMessage="Message is required." Display="Dynamic" />
+                  <label for="message">Message</label>
+                  <asp:TextBox ID="message" runat="server" ClientIDMode="Static" TextMode="MultiLine" placeholder="Your message..." />
+                  <asp:RequiredFieldValidator ID="messageValidator" runat="server" ControlToValidate="message" CssClass="validation-message" ErrorMessage="Message is required." Display="Dynamic" />
 
-              <asp:Button ID="submitButton" runat="server" Text="Send Message" OnClick="SubmitButton_Click" />
-              <asp:Literal ID="formStatus" runat="server" />
-            </section>
+                  <asp:Button ID="submitButton" runat="server" Text="Send Message" OnClick="SubmitButton_Click" />
+                </section>
+              </ContentTemplate>
+            </asp:UpdatePanel>
           </div>
         </div>
       </section>
@@ -260,6 +264,6 @@
     </footer>
   </form>
 
-  <script src="Assets/script.js"></script>
+  <script src="Assets/script.js?v=2"></script>
 </body>
 </html>
