@@ -12,7 +12,7 @@
   <asp:ContentPlaceHolder id="HeadContent" runat="server"></asp:ContentPlaceHolder>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" enctype="multipart/form-data">
       <asp:ScriptManager runat="server" />
 
       <!-- Mobile drawer — outside header -->
@@ -21,6 +21,7 @@
         <ul class="nav-links" id="navLinks" role="list">
           <li><a href="../Default.aspx">View Portfolio</a></li>
           <li><a href="AdminSnapshots.aspx">Snapshots</a></li>
+          <li><a href="AdminEvents.aspx">Events</a></li>
           <li><a href="AdminAchievements.aspx">Achievements</a></li>
           <li><a href="AdminContactMessages.aspx">Messages</a></li>
           <li>
@@ -44,6 +45,7 @@
           <ul class="nav-links-desktop" aria-label="Desktop navigation links">
             <li><a href="../Default.aspx">View Portfolio</a></li>
             <li><a href="AdminSnapshots.aspx">Snapshots</a></li>
+            <li><a href="AdminEvents.aspx">Events</a></li>
             <li><a href="AdminAchievements.aspx">Achievements</a></li>
             <li><a href="AdminContactMessages.aspx">Messages</a></li>
             <li>

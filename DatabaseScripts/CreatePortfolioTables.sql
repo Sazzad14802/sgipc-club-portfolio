@@ -66,3 +66,26 @@ BEGIN
     );
 END;
 GO
+
+IF OBJECT_ID('dbo.Events', 'U') IS NULL
+BEGIN
+    CREATE TABLE dbo.Events
+    (
+        EventId INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+        Title NVARCHAR(160) NOT NULL,
+        Description NVARCHAR(800) NOT NULL,
+        ImageUrl NVARCHAR(500) NULL,
+        DisplayOrder INT NOT NULL CONSTRAINT DF_Events_DisplayOrder DEFAULT (0),
+        CreatedAt DATETIME2 NOT NULL CONSTRAINT DF_Events_CreatedAt DEFAULT (SYSUTCDATETIME())
+    );
+END;
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbo.Events)
+BEGIN
+    INSERT INTO dbo.Events (Title, Description, ImageUrl, DisplayOrder)
+    VALUES
+        (N'KUET IUPC 2025', N'A grand national level programming contest hosted by KUET, bringing together the brightest minds from universities across the country.', N'Assets/kuetiupc.jpg', 1),
+        (N'Intra-KUET Programming Contest', N'An exclusive competitive programming event for KUET students to showcase their algorithmic skills and compete for top honors within the university.', N'Assets/intrakuet.jpg', 2);
+END;
+GO

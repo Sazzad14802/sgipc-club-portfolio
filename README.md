@@ -22,10 +22,11 @@
 ## 🚀 Features
 
 - **Premium Responsive Layout:** Fully optimized for all device sizes featuring a clean dark/light theme toggle.
-- **Dynamic Metrics & Milestones:** Key statistics and club achievements are served dynamically from the MSSQL database.
-- **Contact Channel:** An interactive contact form that stores user messages securely for review.
-- **Admin Dashboard:** Secure dashboard allowing administrators to CRUD (Create, Read, Update, Delete) snapshots/achievements and manage incoming contact messages.
-- **Modern Typography & Styling:** Rich design aesthetics with custom fonts, glassmorphism elements, and smooth transitions without relying on heavy CSS frameworks.
+- **Dynamic Metrics & Milestones:** Key statistics, club achievements, and competitive events are served dynamically from the MSSQL database.
+- **AJAX Contact Channel:** An interactive contact form that submits asynchronously (without page refresh) and stores user messages securely for review.
+- **Admin Dashboard:** Secure dashboard allowing administrators to CRUD (Create, Read, Update, Delete) snapshots, achievements, events, and manage incoming contact messages. Features automatic background AJAX updates with Javascript confirmation safety checks.
+- **Native Image Upload System:** Admins can directly upload event images straight from their computer. The server automatically renames files using GUIDs to prevent overwrites, caches them in a dedicated uploads directory, and securely deletes old files during updates or deletions to save disk space.
+- **Modern Typography & Styling:** Rich design aesthetics with custom fonts, image-centric modern cards, glassmorphism elements, and smooth transitions without relying on heavy CSS frameworks.
 
 ---
 
@@ -44,18 +45,20 @@ club_portfolio_project/
 ├── Admin/
 │   ├── Admin.aspx                        # Admin dashboard UI
 │   ├── Admin.aspx.cs                     # Admin dashboard code-behind
-│   ├── Admin.master                      # Master page for admin area
+│   ├── Admin.master                      # Master page for admin area (contains AJAX UpdatePanel)
 │   ├── AdminSnapshots.aspx               # Snapshot management UI
 │   ├── AdminAchievements.aspx            # Achievement management UI
+│   ├── AdminEvents.aspx                  # Events & workshop management UI with file uploads
 │   └── AdminContactMessages.aspx         # Contact messages management UI
 ├── App_Code/
 │   └── PortfolioRepository.cs            # Data access layer for DB operations
 ├── Assets/
+│   ├── Uploads/                          # System-managed directory for user-uploaded images (.gitignored)
 │   ├── logo.png                          # Club logo asset
 │   ├── script.js                         # Frontend interactions and theme toggling
 │   └── styles.css                        # Core styling system
 ├── DatabaseScripts/
-│   └── CreatePortfolioTables.sql         # SQL script to initialize DB and seed data
+│   └── CreatePortfolioTables.sql         # SQL script to initialize DB schema and seed data
 ├── Default.aspx                          # Main landing page UI
 ├── Default.aspx.cs                       # Main landing page code-behind
 ├── Login.aspx                            # Admin login UI
@@ -79,8 +82,8 @@ sqlcmd -S "(localdb)\MSSQLLocalDB" -i "DatabaseScripts\CreatePortfolioTables.sql
 
 The script will automatically:
 - Create the `sgipcdb` database.
-- Construct the `Snapshot`, `Achievements`, and `ContactMessages` tables.
-- Seed the tables with initial metrics and achievements.
+- Construct the `Snapshot`, `Achievements`, `Events`, and `ContactMessages` tables.
+- Seed the tables with initial metrics, activities, and achievements.
 
 ### 2. Connection & Credentials
 

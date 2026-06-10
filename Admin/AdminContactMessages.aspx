@@ -24,7 +24,11 @@
                             <div style="max-height: 150px; overflow-y: auto; white-space: pre-wrap;"><%# Eval("Message") %></div>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:CommandField ButtonType="Button" ShowDeleteButton="True" />
+                    <asp:TemplateField>
+                        <ItemTemplate>
+                            <asp:Button ID="btnDelete" runat="server" CommandName="Delete" Text="Delete" OnClientClick="return confirm('Are you sure you want to delete this message? This action cannot be undone.');" />
+                        </ItemTemplate>
+                    </asp:TemplateField>
                 </Columns>
             </asp:GridView>
         </div>

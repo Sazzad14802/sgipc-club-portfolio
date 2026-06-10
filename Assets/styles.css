@@ -25,6 +25,7 @@
   --primary: #0284c7;
   --primary-soft: #0369a1;
   --accent: #0f766e;
+  --danger: #dc2626;
   --border: rgba(100, 116, 139, 0.25);
   --shadow: 0 12px 28px rgba(15, 23, 42, 0.12);
 }
@@ -467,6 +468,24 @@ main {
   color: var(--muted);
   font-size: 0.95rem;
 }
+
+.activity-card {
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.activity-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 1px solid var(--border);
+}
+.activity-card .card-body {
+  padding: 1.2rem;
+  flex: 1;
+}
+
 .resource-card a {
   display: inline-block;
   margin-top: 0.7rem;
@@ -930,4 +949,50 @@ footer {
 
 .toast.error {
   border-left-color: var(--danger);
+}
+
+/* ── Custom File Upload UI ──────────────────────────────────────────────────── */
+.hidden-file-input {
+  display: none !important;
+}
+.file-upload-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-top: 0.4rem;
+  width: 100%;
+  overflow: hidden;
+}
+.file-upload-label {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border: 1.5px solid var(--primary);
+  border-radius: 6px;
+  color: var(--primary);
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  max-width: 100%;
+}
+.file-upload-label:hover {
+  background: var(--primary);
+  color: var(--bg);
+}
+:root[data-theme="light"] .file-upload-label:hover {
+  background: var(--primary);
+  color: #fff;
+}
+.file-name-display {
+  display: block;
+  width: 100%;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-style: italic;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

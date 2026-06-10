@@ -52,7 +52,16 @@
                         </EditItemTemplate>
                     </asp:TemplateField>
                     <asp:BoundField DataField="DisplayOrder" HeaderText="Display Order" />
-                    <asp:CommandField ButtonType="Button" ShowEditButton="True" ShowDeleteButton="True" />
+                    <asp:TemplateField>
+                        <ItemTemplate>
+                            <asp:Button ID="btnEdit" runat="server" CommandName="Edit" Text="Edit" />
+                            <asp:Button ID="btnDelete" runat="server" CommandName="Delete" Text="Delete" OnClientClick="return confirm('Are you sure you want to delete this achievement? This action cannot be undone.');" />
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                            <asp:Button ID="btnUpdate" runat="server" CommandName="Update" Text="Update" />
+                            <asp:Button ID="btnCancel" runat="server" CommandName="Cancel" Text="Cancel" />
+                        </EditItemTemplate>
+                    </asp:TemplateField>
                 </Columns>
             </asp:GridView>
         </div>

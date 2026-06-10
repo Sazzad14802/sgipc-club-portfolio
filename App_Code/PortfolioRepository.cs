@@ -115,6 +115,49 @@ public static class PortfolioRepository
         });
     }
 
+    public static DataTable GetEvents()
+    {
+        const string sql = "SELECT EventId, Title, Description, ImageUrl, DisplayOrder, CreatedAt FROM Events ORDER BY DisplayOrder, EventId";
+        return FillTable(sql);
+    }
+
+    public static void InsertEvent(string title, string description, string imageUrl, int displayOrder)
+    {
+        const string sql = "INSERT INTO Events (Title, Description, ImageUrl, DisplayOrder) VALUES (@Title, @Description, @ImageUrl, @DisplayOrder)";
+
+        ExecuteNonQuery(sql, command =>
+        {
+            command.Parameters.Add("@Title", SqlDbType.NVarChar, 160).Value = title;
+            command.Parameters.Add("@Description", SqlDbType.NVarChar, 800).Value = description;
+            command.Parameters.Add("@ImageUrl", SqlDbType.NVarChar, 500).Value = string.IsNullOrEmpty(imageUrl) ? (object)DBNull.Value : imageUrl;
+            command.Parameters.Add("@DisplayOrder", SqlDbType.Int).Value = displayOrder;
+        });
+    }
+
+    public static void UpdateEvent(int eventId, string title, string description, string imageUrl, int displayOrder)
+    {
+        const string sql = "UPDATE Events SET Title = @Title, Description = @Description, ImageUrl = @ImageUrl, DisplayOrder = @DisplayOrder WHERE EventId = @EventId";
+
+        ExecuteNonQuery(sql, command =>
+        {
+            command.Parameters.Add("@Title", SqlDbType.NVarChar, 160).Value = title;
+            command.Parameters.Add("@Description", SqlDbType.NVarChar, 800).Value = description;
+            command.Parameters.Add("@ImageUrl", SqlDbType.NVarChar, 500).Value = string.IsNullOrEmpty(imageUrl) ? (object)DBNull.Value : imageUrl;
+            command.Parameters.Add("@DisplayOrder", SqlDbType.Int).Value = displayOrder;
+            command.Parameters.Add("@EventId", SqlDbType.Int).Value = eventId;
+        });
+    }
+
+    public static void DeleteEvent(int eventId)
+    {
+        const string sql = "DELETE FROM Events WHERE EventId = @EventId";
+
+        ExecuteNonQuery(sql, command =>
+        {
+            command.Parameters.Add("@EventId", SqlDbType.Int).Value = eventId;
+        });
+    }
+
     private static DataTable FillTable(string sql)
     {
         using (SqlConnection connection = Database.CreateConnection())

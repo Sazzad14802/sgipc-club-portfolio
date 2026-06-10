@@ -8,7 +8,7 @@
   <title>Admin Login - SGIPC</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="Assets/styles.css?v=2" />
+  <link rel="stylesheet" href="Assets/styles.css?v=3" />
 </head>
 <body>
   <form id="form1" runat="server">

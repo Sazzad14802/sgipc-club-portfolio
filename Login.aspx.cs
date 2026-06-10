@@ -50,6 +50,6 @@ public partial class Login : Page
             return;
         }
 
-        loginStatus.Text = "<p class=\"validation-message\">Invalid username or password.</p>";
+        loginStatus.Text = "<p class=\"validation-message\" style=\"color: var(--danger, red);\">Invalid username or password.</p>";
     }
 }

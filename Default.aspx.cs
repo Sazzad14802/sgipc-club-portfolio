@@ -40,5 +40,8 @@ public partial class _Default : Page
 
         achievementsRepeater.DataSource = PortfolioRepository.GetAchievements();
         achievementsRepeater.DataBind();
+
+        eventsRepeater.DataSource = PortfolioRepository.GetEvents();
+        eventsRepeater.DataBind();
     }
 }

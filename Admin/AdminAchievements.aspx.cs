@@ -133,6 +133,7 @@ public partial class AdminAchievements : Page
     {
         messageLabel.CssClass = "form-status";
         messageLabel.Text = message;
+        messageLabel.Style.Remove("color");
     }
 
     private void ShowError(string message)

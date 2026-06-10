@@ -10,7 +10,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="Assets/styles.css?v=2" />
+  <link rel="stylesheet" href="Assets/styles.css?v=3" />
 </head>
 <body>
   <form id="form1" runat="server">
@@ -23,6 +23,7 @@
         <li><a href="#about">About</a></li>
         <li><a href="#activities">Activities</a></li>
         <li><a href="#resources">Resources</a></li>
+        <li><a href="#events">Events</a></li>
         <li><a href="#achievements">Achievements</a></li>
         <li><a href="#contact">Contact</a></li>
         <li><a href="Login.aspx">Admin</a></li>
@@ -38,6 +39,7 @@
           <li><a href="#about">About</a></li>
           <li><a href="#activities">Activities</a></li>
           <li><a href="#resources">Resources</a></li>
+          <li><a href="#events">Events</a></li>
           <li><a href="#achievements">Achievements</a></li>
           <li><a href="#contact">Contact</a></li>
           <li><a href="Login.aspx">Admin</a></li>
@@ -137,21 +139,19 @@
           </p>
 
           <div class="feature-grid">
-            <article class="card feature-card fade-up">
-              <h3>Weekly Contests</h3>
-              <p>Internal rounds every Friday with editorial walkthroughs and post-contest analysis.</p>
+            <article class="card activity-card fade-up">
+              <img src="Assets/workshop.jpg" alt="Interactive Sessions" onerror="this.onerror=null; this.src='Assets/logo.png';" />
+              <div class="card-body">
+                <h3>Interactive Sessions</h3>
+                <p>We organize structured practice tracks covering data structures, graph theory, dynamic programming, number theory, and contest strategy.</p>
+              </div>
             </article>
-            <article class="card feature-card fade-up delay-2">
-              <h3>ICPC Preparation</h3>
-              <p>Three-person team simulations, stress-tested workflows, and contest role optimization.</p>
-            </article>
-            <article class="card feature-card fade-up">
-              <h3>Problem Discussions</h3>
-              <p>Solution architecture debates that sharpen intuition and coding efficiency.</p>
-            </article>
-            <article class="card feature-card fade-up delay-1">
-              <h3>Mentorship System</h3>
-              <p>Senior members mentor juniors with learning plans, checkpoints, and mock interviews.</p>
+            <article class="card activity-card fade-up delay-1">
+              <img src="Assets/teamcontest.jpg" alt="Weekly Contests" onerror="this.onerror=null; this.src='Assets/logo.png';" />
+              <div class="card-body">
+                <h3>Weekly Contests</h3>
+                <p>Internal rounds every Friday with editorial walkthroughs, three-person team simulations, and post-contest analysis.</p>
+              </div>
             </article>
           </div>
         </div>
@@ -186,6 +186,28 @@
               <p>Historic regional and world-final style problems for team practice scenarios.</p>
               <a href="https://icpc.global" target="_blank" rel="noopener">Visit Platform</a>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="events" class="section">
+        <div class="container">
+          <p class="chip">Events</p>
+          <h2 class="section-title">Organizing Competitive Events</h2>
+          <p class="section-subtitle">We host national and intra-university programming contests to foster a competitive programming culture.</p>
+
+          <div class="achievement-grid">
+            <asp:Repeater ID="eventsRepeater" runat="server">
+              <ItemTemplate>
+                <article class="card activity-card fade-up">
+                  <img src='<%# string.IsNullOrEmpty(Convert.ToString(Eval("ImageUrl"))) ? "Assets/logo.png" : Eval("ImageUrl") %>' alt='<%# Eval("Title") %>' onerror="this.onerror=null; this.src='Assets/logo.png';" />
+                  <div class="card-body">
+                    <h3><%# Eval("Title") %></h3>
+                    <p><%# Eval("Description") %></p>
+                  </div>
+                </article>
+              </ItemTemplate>
+            </asp:Repeater>
           </div>
         </div>
       </section>
